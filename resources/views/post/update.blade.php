@@ -16,7 +16,7 @@
                     <form id="update_post_form" method="post" action="<?php echo route('updatepost')?>">
 							<input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <div class="form-group">
-                                <label class="form-label"> Name</label>
+                                <label class="form-label"> Title</label>
                                 <input type="text" id="name" class="form-control" name ="name" maxlength="50" value="{{$post->name}}" placeholder="Name">
                             </div>
 							<div class="form-group">
@@ -38,7 +38,7 @@
 	$('.error').remove();
 		 if (name=='')
 		{
-			$("#name").after('<span class="error">Please enter your name</span>');
+			$("#name").after('<span class="error">Please enter title!</span>');
 		}
 		if(description==''){
 			$("#description").after('<span class="error">Please enter description</span>');

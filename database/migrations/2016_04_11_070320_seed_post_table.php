@@ -17,19 +17,19 @@ class SeedPostTable extends Migration {
                                 array(
 									'name' => 'test',
 									'description'=>'test',
-									'user_id'=>'7',
+									'user_id'=>'1',
 									
 									),
 								array(
 									'name' => 'my post',
 									'description'=>'Description is one of four rhetorical modes along with exposition, argumentation, and narration',
-									'user_id'=>'7',
+									'user_id'=>'1',
 									
 									),
 								array(
 									'name' => 'new post again',
 									'description'=>'Description is one of four rhetorical modes along with exposition, argumentation, and narration...',
-									'user_id'=>'7',
+									'user_id'=>'1',
 									
 									),
                         ));

@@ -34,6 +34,11 @@
 					<ul class="nav navbar-nav">
 						<li><a href="{{ asset('/') }}">Home</a></li>
 					</ul>
+					@if(Auth::check())
+						<ul class="nav navbar-nav">
+							<li><a href="{{ asset('mypost') }}">My Post</a></li>
+						</ul>
+					@endif
 					<ul class="nav navbar-nav navbar-right">
 						@if (Auth::guest())
 							<li><a href="{{ asset('auth/login') }}">Login</a></li>
@@ -51,9 +56,9 @@
 			</div>
 		</nav>
 		<div class="container">
-			<?php if(count($post)==0){ ?>
+			@if(count($post)==0){ 
 				<div class="col-md-10 col-md-offset-1"><h3>No records found!!</h3></div>
-			<?php }else{ ?>
+			@else
 				<div class="row">
 					<div class="col-md-10 col-md-offset-1">
 						<table class="table table-bordered table-hover table-striped">
@@ -87,6 +92,10 @@
 						</table>
 					</div>
 				</div>
-			<?php } ?>
+			@endif
+			@yield('content')
+				<!-- Scripts -->
+				<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+				<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
 		</body>
 	</html>

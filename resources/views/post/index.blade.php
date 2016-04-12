@@ -18,9 +18,9 @@
 			</div>
 		</div>
 	</div>
-	<?php if(count($post)==0){ ?>
+	@if(count($post)==0)
 		<div class="col-md-10 col-md-offset-1"><h3>No records found!!</h3></div>
-	<?php }else{ ?>
+	@else
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">
 				<table class="table table-bordered table-hover table-striped">
@@ -63,7 +63,7 @@
                 </table>
             </div>
         </div>
-	<?php } ?>
+	@endif
 		<!-- Modal -->
         <div class="modal fade" id="PostModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
@@ -76,7 +76,7 @@
                         <form id="post_form" method="post"  action="<?php echo route('addpost') ?>">
 							<input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
                             <div class="form-group">
-                                <label class="form-label"> Name</label>
+                                <label class="form-label"> Title</label>
                                 <input type="text" id="name" class="form-control" name ="name" maxlength="50" placeholder="Name">
                             </div>
 							<div class="form-group">
@@ -93,11 +93,11 @@
 </div>
  <script>
 	 $('#postmodal').click(function(){
-				$('#PostModal').modal();
-			});
+		$('#PostModal').modal();
+	});
 	$('.close_form').click(function(){
-				$('#PostModal').modal('hide');
-			});
+		$('#PostModal').modal('hide');
+	});
 	function deletePost(id)
 	{
 		if (confirm("Are you sure you want to delete?")){
@@ -112,7 +112,6 @@
 							$('.alert').remove();
 							$('.msg').before('<div class="alert alert-info">Post Deleted Successfully.</div>');
 							$('#tr_'+id).remove();
-							// console.log($('.row'));
 						}else{
 							alert("problem occured");
 							}
@@ -129,10 +128,10 @@
 	$('.error').remove();
 		 if (name=='')
 		{
-			$("#name").after('<span class="error">Please enter your name</span>');
+			$("#name").after('<span class="error">Please enter title!</span>');
 		}
 		if(description==''){
-			$("#description").after('<span class="error">Please enter description</span>');
+			$("#description").after('<span class="error">Please enter description!</span>');
 		}
 			else{
 			$('#post_form').submit();
